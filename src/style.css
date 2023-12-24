@@ -83,13 +83,13 @@ a:hover {
   margin-bottom: 20px;
 }
 
-.card .card-image {
+#hero .card .card-image {
   border-radius: 20px;
 }
 
-.card {
+#hero .card {
   background: none !important;
-  border: none !important;
+  border: none;
 }
 /* hero */
 
@@ -144,26 +144,14 @@ a:hover {
   color: white;
 }
 
-#detail .modal .btn {
+#detail .modal-body .btn {
   background: linear-gradient(to right, #a555ed, #7800e3);
   border: none;
   color: white;
   width: 50%;
-}
-
-#detail .modal-body {
-  padding: 30px;
-}
-
-#detail .modal .btn {
   margin: auto;
   display: flex;
   justify-content: center;
-}
-
-#detail .modal .btn-close {
-  margin-left: auto;
-  display: flex;
 }
 
 #detail .cost {
@@ -200,6 +188,7 @@ a:hover {
 
 /* news */
 
+
 #news-detail .card {
   background: none;
   border: none;
@@ -207,7 +196,16 @@ a:hover {
 #news-detail .card small {
   color: grey;
 }
-
+#news-detail .bg-news {
+  background: url(../src/assets/image-news.png);
+  background-size: cover;
+  height: 500px;
+  border-radius: 20px;
+}
+#news-detail .more-news .card {
+  background: none;
+  color: white;
+}
 /* news */
 
 
@@ -300,6 +298,7 @@ a:hover {
 }
 #success .card {
   border-radius: 20px;
+  width: 100%;
 }
 #success .card img {
   border-radius: 20px;
@@ -329,6 +328,7 @@ a:hover {
 #success .free-games .card {
   background: none;
   color: white;
+  border: none;
 }
 #success .free-games a {
   text-decoration: none;
