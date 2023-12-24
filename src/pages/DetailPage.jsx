@@ -1,7 +1,11 @@
 import { useState } from "react";
+
+// import components
 import NavbarComp from "../components/NavbarComp";
 import Footer from "../components/Footer";
-import { Nav, Container, Row, Col, Button, Modal, FormLabel, FormControl } from "react-bootstrap"
+import { Nav, Container, Row, Col, Button, Modal, Form, FormLabel, ModalHeader } from "react-bootstrap";
+
+
 const DetailPage = () => {
     const [show, setShow] = useState(false);
 
@@ -11,17 +15,18 @@ const DetailPage = () => {
     return (
         <div>
             <NavbarComp />
-            <div id="detail" className="mt-3">
 
+            <div id="detail" className="mt-3">
                 <Container>
                     <Nav aria-label="breadcrumb" data-bs-theme="dark">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Home</a></li>
+                            <li className="breadcrumb-item active" aria-current="page">
                                 Resident Evil Village
                             </li>
                         </ol>
                     </Nav>
+
                     <Row>
                         <Col lg={4}>
                             <img src="../src/assets/image8.png" alt="" />
@@ -68,6 +73,7 @@ const DetailPage = () => {
                                     <td>Intel UHD Graphic 620 / AMD Radeon Graphic R9</td>
                                 </tr>
                             </table>
+
                             <div className="trigger mt-5">
                                 <Row>
                                     <Col lg={8}>
@@ -76,69 +82,57 @@ const DetailPage = () => {
                                         </Button>
                                     </Col>
                                     <Col lg={4}>
-                                        <Button variant="outline-light" onClick={handleShow} className="btn-outline-light">
+                                        <Button variant="outline-light" onClick={handleShow} className="btn btn-outline-light">
                                             Add to Cart
                                         </Button>
                                     </Col>
                                 </Row>
-
                             </div>
-                            <Modal Modal show={show} onHide={handleClose} data-bs-theme="dark" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <Modal.Body bg="dark">
-                                    <h5>Login</h5>
-                                    <p classNme="text-secondary mb-5">
-                                        Login to download this game
-                                    </p>
 
-                                    <form>
-                                        <FormLabel for="username">Username</FormLabel>
-                                        <FormControl
-                                            type="text"
-                                            class="form-control mb-3"
-                                            placeholder="input username"
-                                        />
+                            <Modal show={show} onHide={handleClose} size="md" centered data-bs-theme="dark">
+                                <div className="modal-content bg-dark" style={{ padding: '30px',}}>
+                                    <Modal.Body className="bg-dark">
+                                        <ModalHeader closeButton style={{ borderBottom: 'none', }}></ModalHeader>
+                                        <h5>Login</h5>
+                                        <p className="text-secondary mb-5">
+                                            Login to download this game
+                                        </p>
 
-                                        <FormLabel for="password">Password</FormLabel>
-                                        <FormControl
-                                            type="password"
-                                            class="form-control"
-                                            placeholder="input password"
-                                        />
-                                        <a
-                                            href="./about-page.html"
-                                            class="d-flex justify-content-end mt-3"
-                                        >Forgot password?</a
-                                        >
-                                    </form>
+                                        <Form>
+                                            <FormLabel for="username">Username</FormLabel>
+                                            <Form.Control type="text" className="mb-3" placeholder="input username" />
+                                            <FormLabel for="password">Password</FormLabel>
+                                            <Form.Control type="password" placeholder="input password" />
+                                            <a href="/AboutPage" className="d-flex justify-content-end mt-3">Forgot password?</a>
+                                        </Form>
 
-                                    <a href="./order-page.html" class="btn mt-3 mb-3">Login</a>
-                                    <p class="d-flex justify-content-center">
-                                        Don't have an account?
-                                        <a href="./signup-page.html">Sign Up</a>
-                                    </p>
-                                </Modal.Body>
+                                        <Button href="/OrderPage" className="mt-5 mb-5" style={{ backgroundColor: '#a555ed', width: '50%', margin: 'auto', display: 'flex', justifyContent: 'center' }}>Login</Button>
+                                        <p className="d-flex justify-content-center">
+                                            Don't have an account?
+                                            <a href="/SignupPage">Sign Up</a>
+                                        </p>
+                                    </Modal.Body>
+                                </div>
                             </Modal>
                         </Col>
                     </Row>
 
-
                     <Row className="mt-5">
                         <Col>
                             <h5>Game Trailer</h5>
-                            <iframe
-                                style={{borderRadius:'20px', width:'100%', height:'500px'}}
-                                src="https://www.youtube.com/embed/dRpXEc-EJow?si=nGEhQvwhV0hq0hlH"
-                                title="YouTube video player"
+                            <iframe style={{ borderRadius: '20px', width: '100%', height: '500px' }}
+                                src="https://www.youtube.com/embed/dRpXEc-EJow?si=nGEhQvwhV0hq0hlH" title="YouTube video player"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                            ></iframe>
+                                allowfullscreen>
+                            </iframe>
                         </Col>
                     </Row>
                 </Container>
             </div>
+
             <Footer />
-        </div >
+        </div>
     );
 }
 
