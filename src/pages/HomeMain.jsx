@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Nav, Container, Row, Col, Form, Carousel, Image, Card } from 'react-bootstrap';
+import { Nav, Container, Row, Col, Form, Carousel, Image, Card} from 'react-bootstrap';
 
 // import component
-import NavbarComp from "../components/NavbarComp";
+import NavbarComp from "../components/NavbarComp.jsx";
 import Reccommended from '../components/Reccommended';
 import Footer from '../components/Footer';
 import FreeGame from '../components/FreeGame';
-import OnSale from '../components/OnSale';
+import OnSale from '../components/OnSale'
 
 const Home = () => {
     const [activeKey, setActiveKey] = useState('discover');
@@ -23,7 +23,7 @@ const Home = () => {
     const renderContent = () => {
         if (activeKey === "discover") {
             return (
-                <div id='hero'>
+                <div>
                     <Row>
                         <Carousel className='mt-5' activeIndex={index} onSelect={handleCarouselSelect}>
                             <Carousel.Item>
@@ -66,7 +66,7 @@ const Home = () => {
                     </Row>
 
                     <Row className='mt-5'>
-                        <OnSale />
+                        <OnSale/>
                     </Row>
 
                     <Row>
@@ -130,15 +130,15 @@ const Home = () => {
             );
         } else if (activeKey === "popular") {
             return (
-                <div id='hero'>
+                <div>
                     <Reccommended />
 
                     <Row>
                         <Col>
-                            <Card className="mt-5 bg-dark" data-bs-theme="dark" style={{ width: '100%', borderRadius: '20px' }}>
+                            <Card className="mt-5 bg-dark" data-bs-theme="dark" style={{width: '100%', borderRadius: '20px'}}>
                                 <Row>
                                     <Col md={6}>
-                                        <Card.Img variant="top" src="../src/assets/image-news.png" className='card-image' />
+                                    <Card.Img variant="top" src="../src/assets/image-news.png" className='card-image' />
                                     </Col>
                                     <Col md={6}>
                                         <Card.Body>
@@ -162,8 +162,6 @@ const Home = () => {
                         </Col>
                     </Row>
 
-
-                    <h5 className='mt-5 mb-3'>Top Free Games</h5>
                     <FreeGame />
                 </div>
             );
